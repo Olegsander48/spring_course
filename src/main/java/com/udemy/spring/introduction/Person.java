@@ -2,12 +2,16 @@ package com.udemy.spring.introduction;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component("personBean")
 public class Person {
+
     private Pet pet;
+    @Value("${person.surname}")
     private String surname;
+    @Value("${person.age}")
     private int age;
 
     /**
@@ -17,8 +21,6 @@ public class Person {
     @Autowired
     public Person(@Qualifier("catBean") Pet pet) {
         this.pet = pet;
-        System.out.println("constructor worked");
-        pet.say();
     }
 
     public void callYourPet() {
