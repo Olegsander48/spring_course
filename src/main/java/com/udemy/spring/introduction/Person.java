@@ -1,6 +1,7 @@
 package com.udemy.spring.introduction;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component("personBean")
@@ -14,8 +15,10 @@ public class Person {
      * @param pet automatically created Bean Cat
      */
     @Autowired
-    public Person(Pet pet) {
+    public Person(@Qualifier("catBean") Pet pet) {
         this.pet = pet;
+        System.out.println("constructor worked");
+        pet.say();
     }
 
     public void callYourPet() {
@@ -24,6 +27,7 @@ public class Person {
     }
 
     @Autowired
+    @Qualifier("dogBean")
     public void setPet(Pet pet) {
         this.pet = pet;
     }
