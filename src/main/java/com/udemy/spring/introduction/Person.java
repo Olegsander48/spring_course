@@ -1,11 +1,21 @@
 package com.udemy.spring.introduction;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component("personBean")
 public class Person {
     private Pet pet;
     private String surname;
     private int age;
 
-    public Person() {
+    /**
+     * We don't have to write @Autowired, because there is only 1 constructor
+     * @param pet automatically created Bean Cat
+     */
+    @Autowired
+    public Person(Pet pet) {
+        this.pet = pet;
     }
 
     public void callYourPet() {
@@ -13,6 +23,7 @@ public class Person {
         pet.say();
     }
 
+    @Autowired
     public void setPet(Pet pet) {
         this.pet = pet;
     }
