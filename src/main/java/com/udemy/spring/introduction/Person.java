@@ -7,8 +7,8 @@ import org.springframework.stereotype.Component;
 
 @Component("personBean")
 public class Person {
-
     private Pet pet;
+    private Pet youngerPet;
     @Value("${person.surname}")
     private String surname;
     @Value("${person.age}")
@@ -26,12 +26,13 @@ public class Person {
     public void callYourPet() {
         System.out.println("Hello, my lovely pet!");
         pet.say();
+        youngerPet.say();
     }
 
     @Autowired
-    @Qualifier("dogBean")
-    public void setPet(Pet pet) {
+    public void setPet(@Qualifier("dogBean") Pet pet, @Qualifier("catBean") Pet youngerPet) {
         this.pet = pet;
+        this.youngerPet = youngerPet;
     }
 
     public void setSurname(String surname) {
