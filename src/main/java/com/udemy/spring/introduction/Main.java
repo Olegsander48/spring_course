@@ -8,6 +8,7 @@ public class Main {
                 new ClassPathXmlApplicationContext("applicationContext.xml");
         Person person = context.getBean("person", Person.class);
         person.callYourPet();
+        System.out.println(person.getSurname());
 
         context.close();
     }
