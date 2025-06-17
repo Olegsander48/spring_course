@@ -13,7 +13,7 @@ public class UniLibrary extends AbstractLibrary {
         System.out.println("Возвращаем книгу в библиотеку университета");
     }
 
-    public void getMagazine(String magazineName) {
-        System.out.println("Берем журнал " + magazineName + " из библиотеки университета");
+    public void getMagazine() {
+        System.out.println("Берем журнал из библиотеки университета");
     }
 }
