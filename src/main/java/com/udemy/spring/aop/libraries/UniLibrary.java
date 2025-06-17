@@ -1,5 +1,6 @@
 package com.udemy.spring.aop.libraries;
 
+import com.udemy.spring.aop.model.Book;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -9,8 +10,8 @@ public class UniLibrary extends AbstractLibrary {
         System.out.println("Берем книгу из библиотеки университета");
     }
 
-    public void returnBook() {
-        System.out.println("Возвращаем книгу в библиотеку университета");
+    public void addBook(Book book) {
+        System.out.println("Книга " + book.getName() + " добавлена в университетскую библиотеку");
     }
 
     public void getMagazine() {
