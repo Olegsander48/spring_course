@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 public class LoggingAspect {
     private static final Logger LOG = LoggerFactory.getLogger(UniLibrary.class.getName());
 
-    @Before("execution(public void com.udemy.spring.aop.libraries.UniLibrary.getBook())")
+    @Before("execution(public void getMagazine(*))")
     public void beforeGetBookAdvice() {
         LOG.info("Вызван метод:  LoggingAspect.beforeGetBookAdvice()");
     }
