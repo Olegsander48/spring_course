@@ -2,10 +2,7 @@ package com.udemy.spring.aop.aspects;
 
 import com.udemy.spring.aop.model.Student;
 import com.udemy.spring.aop.model.University;
-import org.aspectj.lang.annotation.AfterReturning;
-import org.aspectj.lang.annotation.AfterThrowing;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -35,5 +32,10 @@ public class UniversityLoggingAspect {
     public void afterThrowingGetStudentsLoggingAdvice(Throwable exception) {
         LOG.info("Calling method afterThrowingGetStudentsLoggingAdvice() after throwing exception");
         LOG.info("Cause of exception is: " + exception.getMessage());
+    }
+
+    @After("execution(* getStudents())")
+    public void afterGetStudentsLoggingAdvice() {
+        LOG.info("Logging in either way method throw exception or not");
     }
 }
