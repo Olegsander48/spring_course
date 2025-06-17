@@ -9,7 +9,11 @@ public class Test2 {
                 = new AnnotationConfigApplicationContext(MyConfig.class);
         University university = context.getBean("university", University.class);
         university.addStudent();
-        System.out.println(university.getStudents());
+        try {
+            System.out.println(university.getStudents());
+        } catch (Exception e) {
+            System.out.println("Catch IndexOutOfBoundException");
+        }
         context.close();
     }
 }

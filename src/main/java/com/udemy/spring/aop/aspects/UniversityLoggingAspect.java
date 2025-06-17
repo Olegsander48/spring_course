@@ -3,6 +3,7 @@ package com.udemy.spring.aop.aspects;
 import com.udemy.spring.aop.model.Student;
 import com.udemy.spring.aop.model.University;
 import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.slf4j.Logger;
@@ -27,5 +28,12 @@ public class UniversityLoggingAspect {
         students.get(0).setName("Mr. Billy Herrington");
         students.get(1).setCourse(5);
         LOG.info("Calling method UniversityLoggingAspect.beforeGetStudentsLoggingAdvice() after returning");
+    }
+
+    @AfterThrowing(pointcut = "execution(* getStudents())",
+        throwing = "exception")
+    public void afterThrowingGetStudentsLoggingAdvice(Throwable exception) {
+        LOG.info("Calling method afterThrowingGetStudentsLoggingAdvice() after throwing exception");
+        LOG.info("Cause of exception is: " + exception.getMessage());
     }
 }
