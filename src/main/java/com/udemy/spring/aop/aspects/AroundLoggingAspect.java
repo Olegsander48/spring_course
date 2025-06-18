@@ -16,7 +16,14 @@ public class AroundLoggingAspect {
     @Around("execution(public String returnBook())")
     public String aroundReturnBookLoggingAdvice(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         LOG.info("Work of aroundReturnBookLoggingAdvice method: returning book");
-        return (String) proceedingJoinPoint.proceed();
+        String result = null;
+        try {
+            result = (String) proceedingJoinPoint.proceed();
+        } catch (Exception ex) {
+            LOG.error("Method throw exception: list is empty");
+            result = "The captain's daughter";
+        }
+        return result;
     }
 
 }
