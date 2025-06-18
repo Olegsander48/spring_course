@@ -1,4 +1,4 @@
-package com.udemy.spring.aop.aspects;
+package com.udemy.spring.aop.aspect;
 
 import org.aspectj.lang.annotation.Pointcut;
 

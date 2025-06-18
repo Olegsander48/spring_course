@@ -1,5 +1,6 @@
 package com.udemy.spring.aop;
 
+import com.udemy.spring.aop.config.MyConfig;
 import com.udemy.spring.aop.model.University;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 

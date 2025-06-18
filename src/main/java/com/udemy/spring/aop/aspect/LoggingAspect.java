@@ -1,6 +1,6 @@
-package com.udemy.spring.aop.aspects;
+package com.udemy.spring.aop.aspect;
 
-import com.udemy.spring.aop.libraries.UniLibrary;
+import com.udemy.spring.aop.library.UniLibrary;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 public class LoggingAspect {
     private static final Logger LOG = LoggerFactory.getLogger(UniLibrary.class.getName());
 
-    @Before("com.udemy.spring.aop.aspects.MyPointcut.pointcutReference()")
+    @Before("com.udemy.spring.aop.aspect.MyPointcut.pointcutReference()")
     public void beforeGetLoggingAdvice(JoinPoint joinPoint) {
         LOG.info("Вызван метод:  LoggingAspect.beforeGetLoggingAdvice()");
         LOG.info("" + joinPoint.getSignature());

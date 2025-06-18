@@ -1,6 +1,6 @@
-package com.udemy.spring.aop.aspects;
+package com.udemy.spring.aop.aspect;
 
-import com.udemy.spring.aop.libraries.UniLibrary;
+import com.udemy.spring.aop.library.UniLibrary;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;

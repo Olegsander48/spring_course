@@ -1,4 +1,4 @@
-package com.udemy.spring.aop.aspects;
+package com.udemy.spring.aop.aspect;
 
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Order(3)
 public class ExceptionHandlingAspect {
-    @Before("com.udemy.spring.aop.aspects.MyPointcut.pointcutReference()")
+    @Before("com.udemy.spring.aop.aspect.MyPointcut.pointcutReference()")
     public void beforeGetExceptionHandlingAdvice() {
         System.out.println("Catch exception while get book/magazine");
     }

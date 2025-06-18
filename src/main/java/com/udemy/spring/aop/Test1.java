@@ -1,7 +1,8 @@
 package com.udemy.spring.aop;
 
-import com.udemy.spring.aop.libraries.SchoolLibrary;
-import com.udemy.spring.aop.libraries.UniLibrary;
+import com.udemy.spring.aop.config.MyConfig;
+import com.udemy.spring.aop.library.SchoolLibrary;
+import com.udemy.spring.aop.library.UniLibrary;
 import com.udemy.spring.aop.model.Book;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 

@@ -1,4 +1,4 @@
-package com.udemy.spring.aop.aspects;
+package com.udemy.spring.aop.aspect;
 
 import com.udemy.spring.aop.model.Student;
 import com.udemy.spring.aop.model.University;

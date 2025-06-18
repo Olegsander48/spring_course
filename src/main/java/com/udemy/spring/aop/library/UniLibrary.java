@@ -1,4 +1,4 @@
-package com.udemy.spring.aop.libraries;
+package com.udemy.spring.aop.library;
 
 import com.udemy.spring.aop.model.Book;
 import org.springframework.stereotype.Component;
