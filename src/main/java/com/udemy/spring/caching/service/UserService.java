@@ -16,4 +16,8 @@ public interface UserService {
     User createOrReturnCached(User user);
 
     User createAndRefreshCache(User user);
+
+    void delete(Long id);
+
+    void deleteAndEvict(Long id);
 }
