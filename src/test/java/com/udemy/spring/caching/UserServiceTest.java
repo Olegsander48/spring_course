@@ -22,6 +22,20 @@ class UserServiceTest extends AbstractTest {
         getAndPrint(user2.getId());
     }
 
+    @Test
+    void create() {
+        createAndPrint("Ivan", "ivan@mail.ru");
+        createAndPrint("Ivan", "ivan1122@mail.ru");
+        createAndPrint("Sergey", "ivan@mail.ru");
+
+        log.info("all entries are below:");
+        service.getAll().forEach(u -> log.info("{}", u.toString()));
+    }
+
+    private void createAndPrint(String name, String email) {
+        log.info("created user: {}", service.create(name, email));
+    }
+
     private void getAndPrint(Long id) {
         log.info("user found: {}", service.get(id));
     }

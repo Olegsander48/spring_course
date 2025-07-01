@@ -7,6 +7,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Slf4j
 @Service
 public class UserServiceImpl implements UserService {
@@ -27,5 +29,17 @@ public class UserServiceImpl implements UserService {
         log.info("getting user by id: {}", id);
         return repository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("User not found by id " + id));
+    }
+
+    @Override
+    @Cacheable(value = "users", key = "#name")
+    public User create(String name, String email) {
+        log.info("creating user with parameters: {}, {}", name, email);
+        return repository.save(new User(name, email));
+    }
+
+    @Override
+    public List<User> getAll() {
+        return repository.findAll();
     }
 }
