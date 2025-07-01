@@ -12,4 +12,8 @@ public interface UserService {
     User create(String name, String email);
 
     List<User> getAll();
+
+    User createOrReturnCached(User user);
+
+    User createAndRefreshCache(User user);
 }

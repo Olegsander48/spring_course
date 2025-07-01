@@ -4,6 +4,7 @@ import com.udemy.spring.caching.domain.User;
 import com.udemy.spring.caching.repository.UserRepository;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
@@ -41,5 +42,19 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> getAll() {
         return repository.findAll();
+    }
+
+    @Override
+    @Cacheable(value = "users", key = "#user.name")
+    public User createOrReturnCached(User user) {
+        log.info("creating user: {}", user);
+        return repository.save(user);
+    }
+
+    @Override
+    @CachePut(value = "users", key = "#user.name")
+    public User createAndRefreshCache(User user) {
+        log.info("creating user: {}", user);
+        return repository.save(user);
     }
 }
