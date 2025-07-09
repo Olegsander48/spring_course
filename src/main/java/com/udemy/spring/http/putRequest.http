@@ -1,0 +1,9 @@
+PUT /posts/5 HTTP/1.1
+Host: jsonplaceholder.typicode.com
+Content-Type: application/json
+
+{
+  "title": "Hello NEW World",
+  "body": "This is a test post",
+  "userId": 5
+}
