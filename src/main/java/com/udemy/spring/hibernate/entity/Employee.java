@@ -1,4 +1,4 @@
-package com.udemy.spring.hybernate.entity;
+package com.udemy.spring.hibernate.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

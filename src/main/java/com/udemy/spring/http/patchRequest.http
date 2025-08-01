@@ -1,4 +1,4 @@
-PUT /posts/5 HTTP/1.1
+PATCH /posts/5 HTTP/1.1
 Host: jsonplaceholder.typicode.com
 Content-Type: application/json
 
