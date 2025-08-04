@@ -18,6 +18,10 @@ public class Employee {
     @Column
     private int salary;
 
+    @OneToOne(cascade = CascadeType.ALL) //when delete employee his details will be deleted
+    @JoinColumn(name = "details_id") //column from current table
+    private Detail employeeDetail;
+
     public Employee() {
     }
 
