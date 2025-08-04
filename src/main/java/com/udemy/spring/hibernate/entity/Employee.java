@@ -19,7 +19,7 @@ public class Employee {
     private int salary;
 
     @OneToOne(cascade = CascadeType.ALL) //when delete employee his details will be deleted
-    @JoinColumn(name = "details_id") //column from current table
+    @JoinColumn(name = "detail_id") //column from current table
     private Detail employeeDetail;
 
     public Employee() {
@@ -70,6 +70,14 @@ public class Employee {
 
     public void setSalary(int salary) {
         this.salary = salary;
+    }
+
+    public Detail getEmployeeDetail() {
+        return employeeDetail;
+    }
+
+    public void setEmployeeDetail(Detail employeeDetail) {
+        this.employeeDetail = employeeDetail;
     }
 
     @Override

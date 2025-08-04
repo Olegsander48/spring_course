@@ -24,4 +24,10 @@ public class Detail {
 
     @Column(name = "email")
     private String email;
+
+    public Detail(String email, String phoneNumber, String city) {
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.city = city;
+    }
 }
