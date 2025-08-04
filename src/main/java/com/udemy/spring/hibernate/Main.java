@@ -15,5 +15,7 @@ public class Main {
         Employee employee = new Employee("Vladimir", "Vaskob", "HT", 5000);
         employeeRepository.save(employee);
         System.out.println(employeeRepository.findById(employee.getId()).get());
+
+        employeeRepository.deleteById(6);
     }
 }

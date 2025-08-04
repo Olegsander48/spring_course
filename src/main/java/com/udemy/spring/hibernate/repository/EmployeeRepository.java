@@ -13,4 +13,6 @@ public interface EmployeeRepository {
     Optional<Employee> findByName(String name);
 
     void save(Employee employee);
+
+    void deleteById(int id);
 }

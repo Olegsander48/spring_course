@@ -58,4 +58,13 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
         session.getTransaction().commit();
         session.close();
     }
+
+    @Override
+    public void deleteById(int id) {
+        Session session = factory.getCurrentSession();
+        session.beginTransaction();
+        session.remove(session.get(Employee.class, id));
+        session.getTransaction().commit();
+        session.close();
+    }
 }
