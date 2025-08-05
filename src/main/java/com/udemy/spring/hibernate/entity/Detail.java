@@ -25,6 +25,10 @@ public class Detail {
     @Column(name = "email")
     private String email;
 
+    @OneToOne(mappedBy = "employeeDetail", cascade = CascadeType.ALL)
+            //one to one already exist, find it in Employee in field empDetail
+    private Employee employee;
+
     public Detail(String email, String phoneNumber, String city) {
         this.email = email;
         this.phoneNumber = phoneNumber;

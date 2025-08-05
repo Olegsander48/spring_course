@@ -16,9 +16,10 @@ public class Main {
         Employee employee = new Employee("Vladimir", "Vaskob", "HT", 5000);
         Detail detail = new Detail("test@gmail.com", "8029777777", "Minsk");
         employee.setEmployeeDetail(detail);
+        detail.setEmployee(employee);
 
         employeeRepository.save(employee); //save detail on cascade
         System.out.println(employeeRepository.findById(employee.getId()).get());
-        employeeRepository.deleteById(employee.getId()); //deleted data from employees and details
+        //employeeRepository.deleteById(employee.getId()); //deleted data from employees and details
     }
 }
