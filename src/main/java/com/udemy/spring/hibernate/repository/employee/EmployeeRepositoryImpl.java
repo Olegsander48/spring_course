@@ -1,4 +1,4 @@
-package com.udemy.spring.hibernate.repository;
+package com.udemy.spring.hibernate.repository.employee;
 
 import com.udemy.spring.hibernate.entity.Employee;
 import jakarta.persistence.Query;

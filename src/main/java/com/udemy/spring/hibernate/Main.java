@@ -1,9 +1,10 @@
 package com.udemy.spring.hibernate;
 
 import com.udemy.spring.hibernate.configuration.Factory;
+import com.udemy.spring.hibernate.entity.Department;
 import com.udemy.spring.hibernate.entity.Detail;
 import com.udemy.spring.hibernate.entity.Employee;
-import com.udemy.spring.hibernate.repository.EmployeeRepository;
+import com.udemy.spring.hibernate.repository.department.DepartmentRepository;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;
 
@@ -11,15 +12,18 @@ import org.springframework.stereotype.Component;
 public class Main {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Factory.class);
-        EmployeeRepository employeeRepository = context.getBean(EmployeeRepository.class);
+        DepartmentRepository repository = context.getBean(DepartmentRepository.class);
 
-        Employee employee = new Employee("Vladimir", "Vaskob", "HT", 5000);
+        Employee employee1 = new Employee("Vladimir", "Vaskob", "HT", 5000);
         Detail detail = new Detail("test@gmail.com", "8029777777", "Minsk");
-        employee.setEmployeeDetail(detail);
-        detail.setEmployee(employee);
+        employee1.setEmployeeDetail(detail);
+        detail.setEmployee(employee1);
 
-        employeeRepository.save(employee); //save detail on cascade
-        System.out.println(employeeRepository.findById(employee.getId()).get());
-        //employeeRepository.deleteById(employee.getId()); //deleted data from employees and details
+        Employee employee2 = new Employee("Maks", "Jakobs", "NTT", 800);
+        Department department = new Department("IT", 1000, 7000);
+        department.addEmployeeToDepartment(employee1);
+        department.addEmployeeToDepartment(employee2);
+
+        repository.save(department);
     }
 }
