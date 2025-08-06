@@ -2,6 +2,7 @@ package com.udemy.spring.hibernate.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.ToString;
 
 @Entity
 @Table(name = "employees")
@@ -24,6 +25,7 @@ public class Employee {
     @JoinColumn(name = "detail_id") //column from current table
     private Detail employeeDetail;
 
+    @ToString.Exclude
     @ManyToOne(cascade = CascadeType.ALL) //FK in many table
     @JoinColumn(name = "department_id") //column from current table, FK
     private Department departmentDetail;

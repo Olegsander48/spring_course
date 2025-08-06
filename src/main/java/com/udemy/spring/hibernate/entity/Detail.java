@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @Table(name = "details")
@@ -25,6 +26,7 @@ public class Detail {
     @Column(name = "email")
     private String email;
 
+    @ToString.Exclude
     @OneToOne(mappedBy = "employeeDetail", cascade = CascadeType.ALL)
             //one to one already exist, find it in Employee in field empDetail
     private Employee employee;

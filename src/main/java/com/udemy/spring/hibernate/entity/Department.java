@@ -26,7 +26,9 @@ public class Department {
     @Column(name = "max_salary")
     private int maxSalary;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "departmentDetail") //field from other side
+    @OneToMany(cascade = CascadeType.ALL,
+            mappedBy = "departmentDetail",
+            fetch = FetchType.EAGER) //field from other side
     private List<Employee> employees;
 
     public Department(String name, int minSalary, int maxSalary) {

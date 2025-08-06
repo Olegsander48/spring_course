@@ -25,5 +25,6 @@ public class Main {
         department.addEmployeeToDepartment(employee2);
 
         repository.save(department);
+        System.out.println(repository.findById(department.getId()));
     }
 }
