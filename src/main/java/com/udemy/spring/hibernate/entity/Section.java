@@ -19,7 +19,8 @@ public class Section {
     private int id;
     private String name;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH},
+            fetch = FetchType.EAGER)
     @JoinTable(name = "child_section",
             joinColumns = @JoinColumn(name = "section_id"), //column in join table
             inverseJoinColumns = @JoinColumn(name = "child_id")) //column that will connect out table to other table
