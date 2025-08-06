@@ -1,8 +1,6 @@
 package com.udemy.spring.hibernate.configuration;
 
-import com.udemy.spring.hibernate.entity.Department;
-import com.udemy.spring.hibernate.entity.Detail;
-import com.udemy.spring.hibernate.entity.Employee;
+import com.udemy.spring.hibernate.entity.*;
 import org.hibernate.SessionFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -18,6 +16,8 @@ public class Factory {
                 .addAnnotatedClass(Employee.class)
                 .addAnnotatedClass(Detail.class)
                 .addAnnotatedClass(Department.class)
+                .addAnnotatedClass(Child.class)
+                .addAnnotatedClass(Section.class)
                 .buildSessionFactory();
     }
 }
